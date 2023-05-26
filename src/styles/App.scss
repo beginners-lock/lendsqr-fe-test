@@ -1,0 +1,101 @@
+@import './functions.scss';
+@import './fonts.scss';
+
+body, #App{
+    width:100vw; height:100vh; margin:0; padding:0; overflow-y:hidden; overflow-x:hidden;
+    @include flex(row, flex-start, flex-start); box-sizing:border-box;
+}
+
+/*LOGIN PAGE AND CHILDREN*/
+#loginpage{
+    width:100vw; height:100vh; box-sizing:border-box; position:relative;
+    @include flex(row, flex-end, flex-start);
+}
+
+#logincompany{
+    width:auto; height:auto; position:absolute;
+    top:107.67px; left:97px; @include flex(row, flex-start, center);
+}
+
+#loginlogo{ width:24.75px; height:25px; margin-right:10.58px; }
+#loginlogoname{ width:138.44px; height:36px; }
+#loginimg{ position:absolute; top:281px; left:67px; width:600px; height:337.57px; }
+
+#form{
+    @include flex(column, center, flex-start); width:704px; height:100%; box-sizing:border-box;
+    padding:0px 100px;
+}
+
+#loginwelcome{
+    font-family: 'AvenirNextBold';
+    font-size: 40px;
+    line-height: 55px;
+    letter-spacing: -0.04em;
+    color: #213F7D;
+}
+
+#loginformtext{
+    font-family: 'AvenirNextRegular';
+    font-size: 20px;
+    line-height: 27px;
+    color: #545F7D;
+    margin-top:10px; margin-bottom:60px;
+}
+
+.logininput{
+    width:447px; height:50px; background: #FFFFFF; padding:16px 17.5px;
+    border: 2px solid rgba(84, 95, 125, 0.15); box-sizing:border-box;
+    border-radius: 5px; margin-bottom:24px;
+
+    font-family: 'AvenirNextRegular';
+    font-size: 14px; font-weight:400;
+    line-height: 19px;
+    color: #545F7D;
+    opacity: 0.6;
+}
+
+#loginshowhide{
+    margin-left:-60px; height:auto;
+    width: 49.41px; cursor:pointer;
+
+    font-family: 'AvenirNextRegular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #39CDCC;
+}
+
+#loginforgotpass{
+    font-family: 'AvenirNextRegular';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #39CDCC; margin-bottom:30px;
+}
+
+#loginsubmit{
+    width:447px; height:48px;
+    background: #39CDCC; border:none;
+    border-radius: 8px;
+
+    font-family: 'AvenirNextRegular';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    &:hover{ cursor:pointer; }
+}
+
+/*DASHBOARD PAGE AND CHILDREN*/
