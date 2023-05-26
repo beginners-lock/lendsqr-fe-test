@@ -32,4 +32,19 @@
   font-family: 'RobotoRegular';
   src: url("./../fonts/Roboto/Roboto-Regular.ttf");
 }
+
+@font-face {
+  font-family: 'SFCompactTextBold';
+  src: url("./../fonts/SF-Compact-Text/SF-Compact-Text-Bold.ttf");
+}
+
+@font-face {
+  font-family: 'SFCompactTextMedium';
+  src: url("./../fonts/SF-Compact-Text/SF-Compact-Text-Medium.ttf");
+}
+
+@font-face {
+  font-family: 'SFCompactTextRegular';
+  src: url("./../fonts/SF-Compact-Text/SF-Compact-Text-Regular.ttf");
+}
 /*# sourceMappingURL=fonts.css.map */

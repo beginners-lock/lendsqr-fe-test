@@ -5,6 +5,7 @@ import logoname from './../res/lendsqr.svg';
 import './../styles/App.css';
 import LeftSideBar from './LeftSideBar';
 import Users from './Users';
+import UserDetails from './UserDetails';
 
 function Dashboard() {
     return(
@@ -12,7 +13,7 @@ function Dashboard() {
             <TopNav/>
             <div id="mainbody">
                 <LeftSideBar/>
-                <Users/>
+                <UserDetails/>
             </div>
         </div>
     );
