@@ -8,10 +8,10 @@ function LogIn() {
     return (
         <div id="loginpage">
             <div id="logincompany">
-                <img id="loginlogo" src={logo}/>
-                <img id="loginlogoname" src={logoname}/>
+                <img alt="" id="loginlogo" src={logo}/>
+                <img alt="" id="loginlogoname" src={logoname}/>
             </div>
-            <img id="loginimg" src={loginimg}/>
+            <img alt="" id="loginimg" src={loginimg}/>
             <div id="form">
                 <div id="loginwelcome">Welcome!</div>
                 <div id="loginformtext">Enter details to login</div>

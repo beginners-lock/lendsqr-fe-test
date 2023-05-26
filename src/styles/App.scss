@@ -43,7 +43,7 @@ body, #App{
 }
 
 .logininput{
-    width:447px; height:50px; background: #FFFFFF; padding:16px 17.5px;
+    width:447px; height:50px; background:rgba(255,255,255,0); padding:16px 17.5px;
     border: 2px solid rgba(84, 95, 125, 0.15); box-sizing:border-box;
     border-radius: 5px; margin-bottom:24px;
 
@@ -98,4 +98,271 @@ body, #App{
     &:hover{ cursor:pointer; }
 }
 
-/*DASHBOARD PAGE AND CHILDREN*/
+/*TopNav*/
+#topnav{
+    width:100vw; height:100px; padding:0px 52px 0px 30px; box-sizing:border-box; 
+    @include flex(row, space-between, center); background: #FFFFFF;
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+}
+
+#complogodiv{
+    width:auto; height:auto; @include flex(row, flex-start, center);  
+}
+
+#complogo{
+    width:20.63px; height:20.84px;  
+}
+
+#complogoname{
+    width:115.37px; height:30px; margin-left:8.81px;  
+}
+
+#searchdiv{
+    @include flex(row, flex-start, center);
+    margin-left:168.2px;
+}
+
+#searchinput{
+    width:344px; height:40px; box-sizing:border-box;
+    background:rgba(255,255,255,0); padding:0px 20px;
+    opacity: 0.2;
+    border: 1px #213F7D solid;
+    border-radius:8px;
+
+    font-family: 'WorkSansRegular';
+    font-size: 14px;
+    line-height: 16px;
+    color: #545F7D;
+    opacity: 0.7;
+}
+
+#search{
+    background-color:#39CDCC; width:56px; height:40px; box-sizing:border-box;
+    z-index:10px; margin-left:-56px;
+    @include flex(row, center, center); border-radius:0px 8px 8px 0px;
+    img{
+        width:14px; height:14px;
+    }
+}
+
+#topright{
+    @include flex(row, flex-end, center); margin-left:378.03px;
+}
+
+#docs{ 
+    font-family: 'RobotoRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #213F7D;
+}
+
+#bell{
+    margin-left:50px; width:19.67px; height:22.74px;
+}
+
+#avatardiv{
+    @include flex(row, flex-end, center); margin-left:33.16px;
+}
+
+#avatar{
+    width:48px; height:48px; border-radius:50%;
+}
+
+#avatarname{
+    margin-left:10px; 
+    font-family: 'WorkSansRegular';
+    font-size: 16px;
+    line-height: 19px;
+    color: #213F7D;
+}
+
+#avatardrop{
+    margin-left:10px; width:7.34px; height:4.15px;
+}
+
+/*Left Side Bar*/
+#leftsidebar{
+    @include flex(column, flex-start, flex-start); width:283px; height:auto; background: #FFFFFF;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04); height:85vh; box-sizing:border-box; padding:39px 0px 0px 20px;
+}
+
+.lsoptionspecial{
+    @include flex(row, flex-start, center); margin-bottom:42px;
+    img{ width:16px; height:16px; margin-left:10px; }
+
+    div{
+        font-family: 'WorkSansRegular';
+        font-size: 16px;
+        line-height: 19px;
+        color: #213F7D;
+        margin-left:10px;
+    }
+}
+
+.lsoptionspecial:nth-child(2){ margin-bottom:39px; }
+
+#drop2{ width:6.57px; height:11.21px; }
+
+.lsoptionnormal{
+    width:283px; height:40px; margin-top:5px;
+    @include flex(row, flex-start, center);
+    img{ width:16px; height:16px; margin-left:10px; }
+
+    div{
+        font-family: 'WorkSansRegular';
+        font-size: 16px;
+        line-height: 19px;
+        color: #213F7D;
+        margin-left:10px;
+    }
+}
+
+#lsoheader{ 
+    font-family: 'WorkSansMedium';
+    font-size: 12px; margin-left:10px;
+    line-height: 14px; margin-bottom:5px;
+    color: #545F7D;
+}
+
+/*Users Page*/
+#userspage{
+    padding:60px 60px 50px 60px; box-sizing:border-box; width:100%;
+    overflow-y:scroll; overflow-x:hidden; height:85vh;
+}
+
+#userspageheader{
+    font-family: 'WorkSansMedium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #213F7D; margin-bottom:40px;
+}
+
+#usersxcont{
+    @include flex(row, space-between, center);
+    width:100%; box-sizing:border-box; margin-bottom:72.67px;
+}
+
+.uxdiv{
+    width:240px; height:160px; @include flex(column, space-between, flex-start); box-sizing:border-box;
+    padding:20px 0px 30px 30px; background: #FFFFFF; border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04); border-radius: 4px;
+}
+
+.uximg{ width:40px; height:40px; }
+.uxtext{ 
+    font-family: 'WorkSansRegular';
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #545F7D; 
+}
+.uxnum{ 
+    font-family: 'WorkSansBold';
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #213F7D; 
+}
+
+#tablediv{
+    width:100%; height:640px; @include flex(row, flex-start, flex-start);
+    background: #FFFFFF; box-sizing:border-box;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px; padding:30px 20px;
+}
+
+.tableimg{ width:16px; height:10.67px; margin-left:10px; }
+
+table{ width:100%; height:auto; box-sizing:border-box; }
+
+table, th, td{ border-collapse:collapse; }
+
+th{ 
+    font-family: 'WorkSansMedium';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #545F7D; padding-bottom:15px;
+    text-align:left; box-sizing:border-box;
+}
+
+td{ 
+    font-family: 'WorkSansRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;  
+    line-height:16px; padding:21px 0px 23px 0px; 
+    color: #545F7D; text-align:left;
+    border:none; border-bottom:1px rgba(33, 63, 125, 0.1) solid;
+}
+
+#userpagebtm{
+    @include flex(row, space-between, center); width:100%; box-sizing:border-box; margin-top:26px;
+}
+
+#upbleft{
+    font-family: 'WorkSansRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #545F7D;
+}
+
+#upbselect{ display:inline; vertical-align:center; margin:0px 8px; width:70px; height:30px;
+    background: rgba(33, 63, 125, 0.1); box-sizing:border-box; padding:0px 10px;
+    border-radius: 4px; border:none; color:#213F7D; 
+    &:hover{ cursor: pointer; }
+}
+.upbopt{ 
+    border:none; font-family: 'WorkSansRegular'; color:#213F7D; height:30px; 
+}
+
+#upbright{
+    width:262px; height:24px; @include flex(row, space-between, center)
+}
+
+.upbarrow{ 
+    width:24px; height:24px;
+    &:hover{ cursor:pointer;}
+}
+
+.upbnum{ 
+    font-family: 'WorkSansRegular';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #545F7D; opacity:0.6;
+}
+
+.upbactivenum{
+    font-family: 'WorkSansRegular';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #545F7D;
+}
+
+
+
+
+/*Others*/
+#dashboardpage{ 
+    background: #FBFBFB; @include flex(column, flex-start, flex-start);
+    overflow-y:hidden; overflow-x:hidden; width:100vw; height:100vh;
+ 
+}
+#mainbody{
+    width:100vw; @include flex(row, flex-start, flex-start); height:85vh;
+    overflow-y:hidden; overflow-x:hidden;
+}
