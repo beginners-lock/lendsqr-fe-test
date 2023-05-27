@@ -48,6 +48,7 @@
   src: url("./../fonts/SF-Compact-Text/SF-Compact-Text-Regular.ttf");
 }
 
+/*Scrollbar*/
 body, #App {
   width: 100vw;
   height: 100vh;
@@ -172,6 +173,25 @@ body, #App {
   margin-bottom: 60px;
 }
 
+p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  height: auto;
+  margin-bottom: 24px;
+}
+
 .logininput {
   width: 447px;
   height: 50px;
@@ -181,7 +201,6 @@ body, #App {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 5px;
-  margin-bottom: 24px;
   font-family: 'AvenirNextRegular';
   font-size: 14px;
   font-weight: 400;
@@ -190,8 +209,12 @@ body, #App {
   opacity: 0.6;
 }
 
+.logininput:hover {
+  cursor: pointer;
+}
+
 #loginshowhide {
-  margin-left: -60px;
+  margin-right: 10px;
   height: auto;
   width: 49.41px;
   cursor: pointer;
@@ -204,6 +227,12 @@ body, #App {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #39CDCC;
+  z-index: 100;
+  position: absolute;
+}
+
+#loginshowhide:hover {
+  cursor: pointer;
 }
 
 #loginforgotpass {
@@ -216,6 +245,10 @@ body, #App {
   text-transform: uppercase;
   color: #39CDCC;
   margin-bottom: 30px;
+}
+
+#loginforgotpass:hover {
+  cursor: pointer;
 }
 
 #loginsubmit {
@@ -317,7 +350,7 @@ body, #App {
   background: rgba(255, 255, 255, 0);
   padding: 0px 20px;
   opacity: 0.2;
-  border: 1px #213F7D solid;
+  border: 1px rgba(33, 63, 125, 0.2) solid;
   border-radius: 8px;
   font-family: 'WorkSansRegular';
   font-size: 14px;
@@ -383,10 +416,18 @@ body, #App {
   color: #213F7D;
 }
 
+#docs:hover {
+  cursor: pointer;
+}
+
 #bell {
   margin-left: 50px;
   width: 19.67px;
   height: 22.74px;
+}
+
+#bell:hover {
+  cursor: pointer;
 }
 
 #avatardiv {
@@ -404,6 +445,10 @@ body, #App {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 33.16px;
+}
+
+#avatardiv:hover {
+  cursor: pointer;
 }
 
 #avatar {
@@ -441,15 +486,17 @@ body, #App {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 283px;
-  height: auto;
+  width: 286px;
+  height: 85vh;
   background: #FFFFFF;
   -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
           box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
   height: 85vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 39px 0px 0px 20px;
+  padding: 39px 0px 20px 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .lsoptionspecial {
@@ -466,25 +513,28 @@ body, #App {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 42px;
+  margin-bottom: 35px;
+  min-height: 40px;
+  max-height: 40px;
+  width: 95%;
 }
 
 .lsoptionspecial img {
   width: 16px;
   height: 16px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .lsoptionspecial div {
   font-family: 'WorkSansRegular';
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   color: #213F7D;
   margin-left: 10px;
 }
 
-.lsoptionspecial:nth-child(2) {
-  margin-bottom: 39px;
+.lsoptionspecial:hover {
+  cursor: pointer;
 }
 
 #drop2 {
@@ -494,7 +544,8 @@ body, #App {
 
 .lsoptionnormal {
   width: 283px;
-  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
   margin-top: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -519,24 +570,27 @@ body, #App {
 
 .lsoptionnormal div {
   font-family: 'WorkSansRegular';
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   color: #213F7D;
   margin-left: 10px;
 }
 
+.lsoptionnormal:hover {
+  cursor: pointer;
+}
+
 #lsoheader {
   font-family: 'WorkSansMedium';
   font-size: 12px;
-  margin-left: 10px;
+  margin: 30px 0px 5px 10px;
   line-height: 14px;
-  margin-bottom: 5px;
   color: #545F7D;
 }
 
 /*Users Page*/
 #userspage {
-  padding: 60px 60px 50px 60px;
+  padding: 60px 40px 50px 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
@@ -624,7 +678,7 @@ body, #App {
 
 #tablediv {
   width: 100%;
-  height: 640px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -683,13 +737,67 @@ td {
   font-family: 'WorkSansRegular';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
   padding: 21px 0px 23px 0px;
   color: #545F7D;
   text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: none;
   border-bottom: 1px rgba(33, 63, 125, 0.1) solid;
+}
+
+.status {
+  border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'WorkSansRegular';
+  margin: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.activestatus {
+  color: #39CD62;
+  background: rgba(57, 205, 98, 0.06);
+  width: 70px;
+  height: 30px;
+}
+
+.pendingstatus {
+  color: #E9B200;
+  background: rgba(233, 178, 0, 0.1);
+  width: 90px;
+  height: 30px;
+}
+
+.inactivestatus {
+  background: rgba(84, 95, 125, 0.06);
+  color: #545F7D;
+  width: 80px;
+  height: 30px;
+}
+
+.blacklistedstatus {
+  color: #E4033B;
+  background: rgba(228, 3, 59, 0.1);
+  width: 100px;
+  height: 30px;
 }
 
 #userpagebtm {
@@ -905,6 +1013,10 @@ td {
   margin-left: 20px;
 }
 
+#udpright button:hover {
+  cursor: pointer;
+}
+
 #blacklistuserbtn {
   border: 1px solid #E4033B;
   color: #E4033B;
@@ -1103,6 +1215,10 @@ td {
   color: rgba(0, 0, 0, 0.8);
 }
 
+.udpmlist:hover {
+  cursor: pointer;
+}
+
 .udpmlistactive {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1128,6 +1244,10 @@ td {
   color: #39CDCC;
   border: none;
   border-bottom: 2px solid #39CDCC;
+}
+
+.udpmlistactive:hover {
+  cursor: pointer;
 }
 
 #udpbtm {
@@ -1208,7 +1328,8 @@ td {
 }
 
 .udpbcell {
-  width: 25%;
+  min-width: 18%;
+  max-width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1223,6 +1344,9 @@ td {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-bottom: 30px;
+  padding: 10px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .udpbtop {
@@ -1240,7 +1364,7 @@ td {
   font-family: 'WorkSansMedium';
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   color: #545F7D;
 }

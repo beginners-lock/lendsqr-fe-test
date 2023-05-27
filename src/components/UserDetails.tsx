@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { ReactElement, ReactHTMLElement, useEffect, useState } from 'react';
 import avatar from './../res/avatar.svg';
 import back from './../res/back.svg';
 import starempty from './../res/starempty.svg';
 import starfull from './../res/starfull.svg';
 import './../styles/App.css';
 
-function UserDetails() {
+type UserDetailsProps<T> = {
+    userDetails: T
+}
+
+type userdetailformat = {
+        accountBalance: string,
+        accountNumber: string,
+        createdAt: string,
+        education: {level: string, employmentStatus: string, sector: string, duration: string, officeEmail: string, monthlyIncome: string[], loanRepayment: string},
+        email: string,
+        guarantor: {firstName: string, lastName: string, phoneNumber: string, gender: string, address: string, relationship: string},
+        id: string,
+        lastActiveDate: string,
+        orgName: string,
+        phoneNumber: string,
+        profile: {firstName: string, lastName: string, phoneNumber: string, avatar: string, gender: string, bvn: string, address: string, maritalStatus: string, children: string},
+        socials: {facebook: string, instagram: string, twitter: string},
+        userName: string
+}
+
+const UserDetails = <T extends userdetailformat>({userDetails}: UserDetailsProps<T>) => {
+
+    const goback = () => {
+        window.location.href = 'http://localhost:3000/dashboard';
+    }
+
+    const setListActive = (target:  HTMLElement) => {
+        document.getElementsByClassName('udpmlistactive')[0].className = 'udpmlist';
+        target.className = 'udpmlistactive';
+    }
+
     return(
         <div id="userdetailspage">
-            <div id="back"><img id="backimg" alt="" src={back}/>Back to users</div>
+            <div id="back" onClick={()=>{goback();}}><img id="backimg" alt="" src={back}/>Back to users</div>
             <div id="udptop">
                 <div id="udpleft">User Details</div>
                 <div id="udpright">
@@ -18,10 +48,10 @@ function UserDetails() {
             </div>
             <div id="udpmiddle">
                 <div id="udpmtop">
-                    <img id="udpmavatar" alt="" src={avatar}/>
+                    <img id="udpmavatar" alt="" src={userDetails.profile.avatar}/>
                     <div className="udpmdiv">
-                        <div id="udpmname">Grace Effiom</div>
-                        <div id="udpmid">LSQFf587g90</div>
+                        <div id="udpmname">{userDetails.profile.firstName+' '+userDetails.profile.lastName}</div>
+                        <div id="udpmid">{userDetails.accountNumber}</div>
                     </div>
                     <div className="udpmdiv" style={{border:'none', borderLeft:'1px solid rgba(84, 95, 125, 0.2)', borderRight:'1px solid rgba(84, 95, 125, 0.2)',}}>
                         <div id="usertier">User's Tier</div>
@@ -32,17 +62,17 @@ function UserDetails() {
                         </div>
                     </div>
                     <div className="udpmdiv">
-                        <div id="udpmcash">₦200,000.00</div>
+                        <div id="udpmcash">{'₦'+userDetails.accountBalance}</div>
                         <div id="udpmbank">9912345678/Providus Bank</div>
                     </div>
                 </div>
                 <div id="udpmbtm">
-                    <div className="udpmlistactive">General Details</div>
-                    <div className="udpmlist">Documents</div>
-                    <div className="udpmlist">Bank Details</div>
-                    <div className="udpmlist">Loans</div>
-                    <div className="udpmlist">Savings</div>
-                    <div className="udpmlist">App and System</div>
+                    <div className="udpmlistactive" onClick={(e)=>{setListActive(e.target as HTMLElement);}}>General Details</div>
+                    <div className="udpmlist" onClick={(e)=>{setListActive(e.target as HTMLElement);}}>Documents</div>
+                    <div className="udpmlist" onClick={(e)=>{setListActive(e.target as HTMLElement);}}>Bank Details</div>
+                    <div className="udpmlist" onClick={(e)=>{setListActive(e.target as HTMLElement);}}>Loans</div>
+                    <div className="udpmlist" onClick={(e)=>{setListActive(e.target as HTMLElement);}}>Savings</div>
+                    <div className="udpmlist" onClick={(e)=>{setListActive(e.target as HTMLElement);}}>App and System</div>
                 </div>
             </div>
             <div id="udpbtm">
@@ -51,44 +81,106 @@ function UserDetails() {
                     <div className='udpbbody'>
                         <div className='udpbcell'>
                             <div className='udpbtop'>FULL NAME</div>
-                            <div className='udpbbtm'>Grace Effiom</div>
+                            <div className='udpbbtm'>{userDetails.profile.firstName+' '+userDetails.profile.lastName}</div>
                         </div>
                         <div className='udpbcell'>
                             <div className='udpbtop'>PHONE NUMBER</div>
-                            <div className='udpbbtm'>07060780922</div>
+                            <div className='udpbbtm'>{userDetails.profile.phoneNumber}</div>
                         </div>
                         <div className='udpbcell'>
                             <div className='udpbtop'>EMAIL ADDRESS</div>
-                            <div className='udpbbtm'>07060780922</div>
+                            <div className='udpbbtm'>{userDetails.email}</div>
                         </div>
                         <div className='udpbcell'>
-                            <div className='udpbtop'>FULL NAME</div>
-                            <div className='udpbbtm'>Grace Effiom</div>
+                            <div className='udpbtop'>BVN</div>
+                            <div className='udpbbtm'>{userDetails.profile.bvn}</div>
                         </div>
                         <div className='udpbcell'>
-                            <div className='udpbtop'>PHONE NUMBER</div>
-                            <div className='udpbbtm'>07060780922</div>
+                            <div className='udpbtop'>GENDER</div>
+                            <div className='udpbbtm'>{userDetails.profile.gender}</div>
                         </div>
                         <div className='udpbcell'>
-                            <div className='udpbtop'>EMAIL ADDRESS</div>
-                            <div className='udpbbtm'>07060780922</div>
+                            <div className='udpbtop'>MARITAL STATUS</div>
+                            <div className='udpbbtm'>{userDetails.profile.maritalStatus?userDetails.profile.maritalStatus:'Information unavailable'}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>CHILDREN</div>
+                            <div className='udpbbtm'>{userDetails.profile.children?userDetails.profile.children:'Information unavailable'}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>TYPE 0F RESIDENCE</div>
+                            <div className='udpbbtm'>{userDetails.profile.address}</div>
                         </div>
                     </div>
                 </div>
                 <div className="udpbrow">
-                    <div className='udpbheader'>Personal Information</div>
+                    <div className='udpbheader'>Education and Employment</div>
+                    <div className='udpbbody'>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>LEVEL OF EDUCATION</div>
+                            <div className='udpbbtm'>{userDetails.education.level}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>EMPLOYMENT STATUS</div>
+                            <div className='udpbbtm'>{userDetails.education.employmentStatus}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>SECTOR OF EMPLOYMENT</div>
+                            <div className='udpbbtm'>{userDetails.education.sector}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>DURATION OF EMPLOYMENT</div>
+                            <div className='udpbbtm'>{userDetails.education.duration}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>OFFICE EMAIL</div>
+                            <div className='udpbbtm'>{userDetails.education.officeEmail}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>MONTHLY INCOME</div>
+                            <div className='udpbbtm'>{'₦'+userDetails.education.monthlyIncome[0]+'- ₦'+userDetails.education.monthlyIncome[1]}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>LOAN REPAYMENT</div>
+                            <div className='udpbbtm'>{'₦'+userDetails.education.loanRepayment}</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="udpbrow">
+                    <div className='udpbheader'>Socials</div>
+                    <div className='udpbbody'>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>TWITTER</div>
+                            <div className='udpbbtm'>{userDetails.socials.twitter}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>FACEBOOK</div>
+                            <div className='udpbbtm'>{userDetails.socials.facebook}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>INSTAGRAM</div>
+                            <div className='udpbbtm'>{userDetails.socials.instagram}</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="udpbrow" style={{border:'none'}}>
+                    <div className='udpbheader'>Guarantor</div>
                     <div className='udpbbody'>
                         <div className='udpbcell'>
                             <div className='udpbtop'>FULL NAME</div>
-                            <div className='udpbbtm'>Grace Effiom</div>
+                            <div className='udpbbtm'>{userDetails.guarantor.firstName+' '+userDetails.guarantor.lastName}</div>
                         </div>
                         <div className='udpbcell'>
                             <div className='udpbtop'>PHONE NUMBER</div>
-                            <div className='udpbbtm'>07060780922</div>
+                            <div className='udpbbtm'>{userDetails.guarantor.phoneNumber}</div>
                         </div>
                         <div className='udpbcell'>
                             <div className='udpbtop'>EMAIL ADDRESS</div>
-                            <div className='udpbbtm'>07060780922</div>
+                            <div className='udpbbtm'>{userDetails.guarantor.address}</div>
+                        </div>
+                        <div className='udpbcell'>
+                            <div className='udpbtop'>RELATIONSHIP</div>
+                            <div className='udpbbtm'>{userDetails.guarantor.relationship?userDetails.guarantor.relationship:'Information unavailable'}</div>
                         </div>
                     </div>
                 </div>

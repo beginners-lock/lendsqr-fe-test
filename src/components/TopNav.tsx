@@ -15,7 +15,7 @@ function TopNav() {
                 <img alt="" id="complogoname" src={logoname}/>
             </div>
             <div id="searchdiv">
-                <input id="searchinput" value="Search for anything"/>
+                <input id="searchinput" placeholder="Search for anything" type="text"/>
                 <div id="search">
                     <img alt="" src={search}/>
                 </div>

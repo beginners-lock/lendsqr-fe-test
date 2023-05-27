@@ -5,6 +5,18 @@ import loginimg from './../res/pablo-sign-in 1.svg';
 import './../styles/App.css';
 
 function LogIn() {
+    const showhide = (target: HTMLElement) => {
+        console.log('hey');
+        let input = target.previousElementSibling as HTMLInputElement;
+        if(target.innerText === 'SHOW'){
+            target.innerText = 'HIDE';
+            input.type = 'text'
+        }else{
+            target.innerText = 'SHOW';
+            input.type = 'password';
+        }
+    }
+
     return (
         <div id="loginpage">
             <div id="logincompany">
@@ -20,10 +32,10 @@ function LogIn() {
                 </p>
                 <p>
                 <input className="logininput" type="password" name="Password" placeholder="Password"></input>
-                <i id="loginshowhide">SHOW</i>
+                <i id="loginshowhide" onClick={(e)=>{showhide(e.target as HTMLElement);}}>SHOW</i>
                 </p>
                 <div id="loginforgotpass">Forgot password</div>
-                <button id="loginsubmit">LOG IN</button>
+                <button id="loginsubmit" onClick={()=>{window.location.href = 'http://localhost:3000/dashboard';}}>LOG IN</button>
             </div>
         </div>
     );
