@@ -4,6 +4,12 @@
 
 @media only screen and (min-width: 1024px){
     /*Scrollbar*/
+    #leftsidebar::-webkit-scrollbar{width:5px;}
+    #leftsidebar::-webkit-scrollbar-track{ background:#FFFFFF; }
+    #leftsidebar::-webkit-scrollbar-thumb{ 
+        background: #545F7D; border-radius:5px; transition-duration:0.25s; 
+        &:hover{ cursor:pointer; background: #213F7D; }
+    }
 
 
 
@@ -666,7 +672,11 @@
         font-size: 14px;
         line-height: 16px;
         color:rgba(84, 95, 127, 0.7);
+        option{
+            height:40px;
+        }
     }
+
     #filterbtndiv{
         @include flex(row, space-between, center); width:100%; margin-top:15px;
         div{

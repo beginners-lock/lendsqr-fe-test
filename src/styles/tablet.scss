@@ -650,6 +650,7 @@
         font-size: 16px;
         line-height: 16px;
         color:rgba(84, 95, 127, 0.7);
+        option{ height:50px }
     }
     #filterbtndiv{
         @include flex(row, space-between, center); width:100%; margin-top:35px;

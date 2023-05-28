@@ -1492,6 +1492,9 @@
     line-height: 16px;
     color: rgba(84, 95, 127, 0.7);
   }
+  .filterselect option {
+    height: 40px;
+  }
   #filterbtndiv {
     display: -webkit-box;
     display: -ms-flexbox;

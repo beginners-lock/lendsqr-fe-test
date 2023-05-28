@@ -50,6 +50,22 @@
 
 @media only screen and (min-width: 1024px) {
   /*Scrollbar*/
+  #leftsidebar::-webkit-scrollbar {
+    width: 5px;
+  }
+  #leftsidebar::-webkit-scrollbar-track {
+    background: #FFFFFF;
+  }
+  #leftsidebar::-webkit-scrollbar-thumb {
+    background: #545F7D;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+  }
+  #leftsidebar::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+    background: #213F7D;
+  }
   body, #App {
     width: 100vw;
     height: 100vh;
@@ -1444,6 +1460,9 @@
     font-size: 14px;
     line-height: 16px;
     color: rgba(84, 95, 127, 0.7);
+  }
+  .filterselect option {
+    height: 40px;
   }
   #filterbtndiv {
     display: -webkit-box;

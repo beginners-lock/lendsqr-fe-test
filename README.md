@@ -75,7 +75,7 @@ The Login Page located at `http://localhost:3000` or `http://localhost:3000/logi
 This page provides a list of the subscribed users and is located at `http://localhost:3000/dashboard`.
 The user list is gotten by fetching the data from [https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users](https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users)
 - Clicking any of the table header to display the filte form which does not have any functionalities yet. 
-- Clicking the `Reset` button, `Filter` button or any free part of the site would close this filter form.
+- Clicking the `Reset` button, `Filter` button or any free part of the site would close this filter form. The filter form is not full functional, it currently only filters by user status; meaning anyther information in other inout fields do not affect the filtered result 
 - Due to the unavailability of a status attribute/key in the users object sent throught the API, all - status values shown are randomly allocated to users 'onMount' of the `Users` component.
 - Clicking the three dot icon at the right of each row would bring out the more options pop up which has the features of activating, blacklisting and viewing user details. These functions are fully functional and activation or blacklist shows real time updates to the table data and active user card above. 
 - Clicking the table row can also be an alternative to view user details
