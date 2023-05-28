@@ -7,6 +7,9 @@ import tableimg from './../res/tableimg.svg';
 import nextbtn from './../res/nextbtn.svg';
 import prevbtn from './../res/prevbtn.svg';
 import more from './../res/more.svg';
+import blacklist from './../res/blacklist.svg';
+import activate from './../res/activate.svg';
+import view from './../res/view.svg';
 import './../styles/App.css';
 
 //May 15, 2020 10:00 AM
@@ -18,6 +21,10 @@ function Users() {
     const [pages, setPages] = useState(10);
     const status = ['Active', 'Inactive', 'Pending', 'Blacklisted'];
     const [users, setUsers] = useState([]);
+    const [filterDisplay, setFilterDisplay] = useState('none');
+    const [moreDisplay, setMoreDisplay] = useState('none');
+    const [idFocus, setIdFocus] = useState('');
+    const [coordinates, setCoordinates] = useState([0, 0])
 
     useEffect(()=>{
         let url = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users';
@@ -88,6 +95,17 @@ function Users() {
         }
     }
 
+    const editStatus = (id: string, status: string) => {
+        let usersArr: any = users;
+        let index = usersArr.findIndex((user: any) => user.id === id);
+        if(status==='Active'){ setActiveUsers(activeUsers+1); }
+        if(status==='Blacklisted' && usersArr[index].status==='Active'){ setActiveUsers(activeUsers-1); }
+        usersArr[index].status = status;
+        console.log(usersArr[index]);
+        setUsers(usersArr);
+        setMoreDisplay('none');
+    }
+
     const finduserdetails = (id: string) => {
         let url = new URL('http://localhost:3000/dashboard');
         url.searchParams.set('id', id);
@@ -95,7 +113,7 @@ function Users() {
     }
 
     return(
-        <div id="userspage">
+        <div id="userspage" onClick={(e)=>{e.stopPropagation(); setMoreDisplay('none'); setFilterDisplay('none');}}>
             <div id="userspageheader">Users</div>
             <div id="usersxcont">
                 <div className="uxdiv">
@@ -124,30 +142,35 @@ function Users() {
                 <table>
                     <tbody>
                     <tr>
-                            <th style={{width: '15%'}}>Organization<img className="tableimg" alt="" src={tableimg}/></th>
-                            <th style={{width: '14%'}}>Username<img className="tableimg" alt="" src={tableimg}/></th> 
-                            <th style={{width: '21%'}}>Email<img className="tableimg" alt="" src={tableimg}/></th>
-                            <th style={{width: '16%'}}>Phone Number<img className="tableimg" alt="" src={tableimg}/></th> 
-                            <th style={{width: '17%'}}>Date Joined<img className="tableimg" alt="" src={tableimg}/></th>
-                            <th style={{width: '12%'}}>Status<img className="tableimg" alt="" src={tableimg}/></th> 
+                            <th style={{}} onClick={(e)=>{e.stopPropagation(); setFilterDisplay('flex')}}>Organization<img className="tableimg" alt="" src={tableimg}/></th>
+                            <th style={{}} onClick={(e)=>{e.stopPropagation(); setFilterDisplay('flex')}}>Username<img className="tableimg" alt="" src={tableimg}/></th> 
+                            <th style={{}} onClick={(e)=>{e.stopPropagation(); setFilterDisplay('flex')}}>Email<img className="tableimg" alt="" src={tableimg}/></th>
+                            <th style={{}} onClick={(e)=>{e.stopPropagation(); setFilterDisplay('flex')}}>Phone Number<img className="tableimg" alt="" src={tableimg}/></th> 
+                            <th style={{}} onClick={(e)=>{e.stopPropagation(); setFilterDisplay('flex')}}>Date Joined<img className="tableimg" alt="" src={tableimg}/></th>
+                            <th style={{}} onClick={(e)=>{e.stopPropagation(); setFilterDisplay('flex')}}>Status<img className="tableimg" alt="" src={tableimg}/></th> 
                     </tr>
                     {
                         users.slice(rows*(curPage-1), rows*curPage).map((row: any)=>{
                             return(
                                 <tr key={row.id} onClick={()=>{finduserdetails(row.id);}}>
-                                    <td style={{width: '15%'}}>{row.orgName}</td>
-                                    <td style={{width: '14%'}}>{row.userName}</td> 
-                                    <td style={{width: '21%'}}>{row.email}</td>
-                                    <td style={{width: '16%'}}>{row.phoneNumber}</td> 
-                                    <td style={{width: '17%'}}>{dateFunct(row.createdAt)}</td>
-                                    <td  style={{width: '12%', textAlign:'center'}}><div className={row.status.toLowerCase()+'status status'}>{row.status}</div></td> 
-                                    <td><img className="more" alt="" src={more}/></td>
+                                    <td>{row.orgName}</td>
+                                    <td>{row.userName}</td> 
+                                    <td>{row.email}</td>
+                                    <td>{row.phoneNumber}</td> 
+                                    <td>{dateFunct(row.createdAt)}</td>
+                                    <td><div className={row.status.toLowerCase()+'status status'}>{row.status}</div></td> 
+                                    <td onClick={(e)=>{e.stopPropagation(); console.log(e.clientX, e.clientY); setCoordinates([e.clientX, e.clientY]); setMoreDisplay('flex'); setIdFocus(row.id);}}><img className="more" alt="" src={more}/></td>
                                 </tr>
                             )
                         })
                     }
                     </tbody>
                 </table>
+                <div id="moreoptdiv" style={{display: moreDisplay, right: window.innerWidth-coordinates[0], top: (window.innerWidth<500)?coordinates[1]-30:(window.innerWidth>500 && window.innerWidth<=1023)?coordinates[1]-50:coordinates[1]+30 }}>
+                    <div className='moreoptrow' onClick={()=>{ finduserdetails(idFocus);}}><img className="moreoptimg" alt="" src={view}/> View Details</div>
+                    <div className='moreoptrow' onClick={()=>{ editStatus(idFocus, 'Blacklisted');}}><img className="moreoptimg" alt="" src={blacklist}/> Blacklist User</div>
+                    <div className='moreoptrow' onClick={()=>{editStatus(idFocus, 'Active');}}><img className="moreoptimg" alt="" src={activate}/> Activate User</div>
+                </div>
             </div>
             <div id="userpagebtm">
                 <div id="upbleft">
@@ -171,6 +194,43 @@ function Users() {
                     <img className="upbarrow" alt="" src={nextbtn} onClick={()=>{nextpage();}}/>
                 </div>
             </div>
+                <form id="filterform" style={{display: filterDisplay}}>
+                    <p className="filterp">
+                        <label className="filterlabel">Organization</label>
+                        <select className="filterselect">
+                            <option>Select</option>
+                        </select>
+                    </p>
+                    <p className="filterp">
+                        <label className="filterlabel">Username</label>
+                        <input className="filterinput" type="text" placeholder="User"></input>
+                    </p>
+                    <p className="filterp">
+                        <label className="filterlabel">Email</label>
+                        <input className="filterinput" type="email" placeholder="User"></input>
+                    </p>
+                    <p className="filterp">
+                        <label className="filterlabel">Date</label>
+                        <input className="filterinput" type="date" placeholder="User"></input>
+                    </p>
+                    <p className="filterp">
+                        <label className="filterlabel">Phone Number</label>
+                        <input className="filterinput" type="phone" placeholder="User"></input>
+                    </p>
+                    <p className="filterp">
+                        <label className="filterlabel">Status</label>
+                        <select className="filterselect">
+                            <option>Active</option>
+                            <option>Blacklisted</option>
+                            <option>Inactive</option>
+                            <option>Pending</option>
+                        </select>
+                    </p>
+                    <div id="filterbtndiv">
+                        <div id="resetbtn" onClick={()=>{setFilterDisplay('none');}}>Reset</div>
+                        <div id="filterbtn" onClick={()=>{setFilterDisplay('none');}}>Filter</div>
+                    </div>
+                </form>
         </div>
     );
 }

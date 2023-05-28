@@ -2,11 +2,7 @@
 @import './fonts.scss';
 
 
-@media only screen and (min-width: 1024px){
-    /*Scrollbar*/
-
-
-
+@media only screen and (max-width: 500px){
     body, #App{
         width:100vw; height:100vh; margin:0; padding:0; overflow-y:hidden; overflow-x:hidden;
         @include flex(row, flex-start, flex-start); box-sizing:border-box;
@@ -15,43 +11,40 @@
     /*LOGIN PAGE AND CHILDREN*/
     #loginpage{
         width:100vw; height:100vh; box-sizing:border-box; position:relative;
-        @include flex(row, flex-end, flex-start);
+        @include flex(column, flex-start, center); padding:15px 10px;
     }
 
     #logincompany{
-        width:auto; height:auto; position:absolute;
-        top:107.67px; left:97px; @include flex(row, flex-start, center);
+        width:100%; height:auto; @include flex(row, flex-start, center); padding:5px 5px; box-sizing:border-box;
     }
 
-    #loginlogo{ width:24.75px; height:25px; margin-right:10.58px; }
-    #loginlogoname{ width:138.44px; height:36px; }
-    #loginimg{ position:absolute; top:281px; left:67px; width:600px; height:337.57px; }
+    #loginlogo{ width:20px; height:20px; margin-right:5px; }
+    #loginlogoname{ width:auto; height:20px; }
+    #loginimg{ width:auto; height:200px; margin-top:50px; }
 
     #form{
-        @include flex(column, center, flex-start); width:704px; height:100%; box-sizing:border-box;
-        padding:0px 100px;
+        @include flex(column, center, flex-start); width:90%; height:auto; box-sizing:border-box;
+        margin-top:50px;
     }
 
     #loginwelcome{
         font-family: 'AvenirNextBold';
-        font-size: 40px;
-        line-height: 55px;
+        font-size: 24px; text-align:center;
         letter-spacing: -0.04em;
         color: #213F7D;
     }
 
     #loginformtext{
         font-family: 'AvenirNextRegular';
-        font-size: 20px;
-        line-height: 27px;
+        font-size: 16px;
         color: #545F7D;
-        margin-top:10px; margin-bottom:60px;
+        margin-top:10px; margin-bottom:10px;
     }
 
-    p{ @include flex(row, flex-end, center); width:auto; height:auto; margin-bottom:24px;}
+    p{ @include flex(row, flex-end, center); width:100%; height:auto; margin-bottom:15px;}
 
     .logininput{
-        width:447px; height:50px; background:rgba(255,255,255,0); padding:16px 17.5px;
+        width:100%; height:45px; background:rgba(255,255,255,0); padding:16px 17.5px;
         border: 2px solid rgba(84, 95, 125, 0.15); box-sizing:border-box;
         border-radius: 5px;
 
@@ -70,7 +63,6 @@
         font-style: normal;
         font-weight: 600;
         font-size: 12px;
-        line-height: 16px;
         text-align: center;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -86,14 +78,14 @@
         text-align: right;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: #39CDCC; margin-bottom:30px;
+        color: #39CDCC; margin-bottom:30px; margin-top:10px;
         &:hover{ cursor:pointer; }
     }
 
     #loginsubmit{
-        width:447px; height:48px;
+        width:100%; height:48px;
         background: #39CDCC; border:none;
-        border-radius: 8px;
+        border-radius: 8px; margin-top:10px;
 
         font-family: 'AvenirNextRegular';
         font-weight: 600;
@@ -109,7 +101,7 @@
 
     /*TopNav*/
     #topnav{
-        width:100vw; height:100px; padding:0px 52px 0px 30px; box-sizing:border-box; 
+        width:100vw; height:auto; padding:10px; box-sizing:border-box; 
         @include flex(row, space-between, center); background: #FFFFFF;
         box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
     }
@@ -119,16 +111,16 @@
     }
 
     #complogo{
-        width:20.63px; height:20.84px;  
+        width:18px; height:18px;  
     }
 
     #complogoname{
-        width:115.37px; height:30px; margin-left:8.81px;  
+        width:auto; height:18px; margin-left:5px;  
     }
 
     #searchdiv{
         @include flex(row, flex-start, center);
-        margin-left:168.2px;
+        margin-left:168.2px; display:none;
     }
 
     #searchinput{
@@ -155,32 +147,32 @@
     }
 
     #topright{
-        @include flex(row, flex-end, center); margin-left:378.03px;
+        @include flex(row, flex-end, center);
     }
 
     #docs{ 
         font-family: 'RobotoRegular';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 19px;
         text-decoration-line: underline;
-        color: #213F7D;
+        color: #213F7D; margin-right:15px;
         &:hover{cursor:pointer;}
     }
 
     #bell{
-        margin-left:50px; width:19.67px; height:22.74px;
-        &:hover{cursor:pointer;}
+        width:18px; height:auto;
+        &:hover{cursor:pointer;} margin-right:15px;
     }
 
     #avatardiv{
-        @include flex(row, flex-end, center); margin-left:33.16px;
+        @include flex(row, flex-end, center);
         &:hover{cursor:pointer;}
     }
 
     #avatar{
-        width:48px; height:48px; border-radius:50%;
+        width:35px; height:35px; border-radius:50%;
     }
 
     #avatarname{
@@ -192,18 +184,18 @@
     }
 
     #avatardrop{
-        margin-left:10px; width:7.34px; height:4.15px;
+        width:7.34px; height:4.15px;
     }
 
     /*Left Side Bar*/
     #leftsidebar{
-        @include flex(column, flex-start, flex-start); width:286px; background: #FFFFFF;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04); height:85vh; box-sizing:border-box; padding:39px 0px 20px 20px;
-        overflow-y:auto; overflow-x:hidden;
+        position:absolute; @include flex(column, flex-start, flex-start); width:100vw; height:100%; background: #FFFFFF;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04); box-sizing:border-box; padding:20px 0px 20px 20px;
+        overflow-y:auto; overflow-x:hidden; transition-duration:0.25s; z-index:1px;
     }
 
     .lsoptionspecial{
-        @include flex(row, flex-start, center); margin-bottom:35px; min-height:40px; max-height:40px; width:95%;
+        @include flex(row, flex-start, center); margin-bottom:20px; min-height:40px; max-height:40px; width:95%;
         img{ width:16px; height:16px; margin-left:5px; }
 
         div{
@@ -259,42 +251,39 @@
 
     /*Users Page*/
     #userspage{
-        @include flex(column, flex-start, flex-start); width:100vw; height:85vh; box-sizing:border-box;
-        overflow-y:auto; overflow-x:hidden; padding:60px 40px 50px 40px;
+        @include flex(column, flex-start, flex-start); width:100vw; height:100%; box-sizing:border-box;
+        overflow-y:auto; overflow-x:hidden; padding:20px 15px 40px 15px;
     }
 
     #userspageheader{
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 20px;
         color: #213F7D; margin-bottom:40px;
     }
 
     #usersxcont{
-        @include flex(row, space-between, center);
-        width:100%; box-sizing:border-box; margin-bottom:72.67px;
+        @include flex(column, flex-start, center);
+        width:100%; height:auto; box-sizing:border-box; margin-bottom:40px;
     }
 
     .uxdiv{
-        width:240px; height:160px; @include flex(column, space-between, flex-start); box-sizing:border-box;
-        padding:20px 0px 30px 30px; background: #FFFFFF; border: 1px solid rgba(33, 63, 125, 0.06);
-        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04); border-radius: 4px;
+        width:200px; height:120px; @include flex(column, space-around, center); box-sizing:border-box;
+        background: #FFFFFF; border: 1px solid rgba(33, 63, 125, 0.06); margin-bottom:20px;
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04); border-radius: 4px; padding:15px 0px;
     }
 
-    .uximg{ width:40px; height:40px; }
+    .uximg{ width:35px; height:35px; }
     .uxtext{ 
         font-family: 'WorkSansRegular';
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 12px;
         text-transform: uppercase;
         color: #545F7D; 
     }
     .uxnum{ 
         font-family: 'WorkSansBold';
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 16px;
         text-transform: uppercase;
         color: #213F7D; 
     }
@@ -314,20 +303,21 @@
     table, th, td{ border-collapse:collapse; }
 
     tr{
-        th:nth-child(1){width:17%;}
-        th:nth-child(2){width:14%;}
-        th:nth-child(3){width:22%;}
-        th:nth-child(4){width:16%;}
-        th:nth-child(5){width:17%;}
-        th:nth-child(6){width:12%;}
+        th:nth-child(1){display:none;}
+        th:nth-child(2){width:50%;}
+        th:nth-child(3){display:none;}
+        th:nth-child(4){display:none;}
+        th:nth-child(5){display:none;}
+        th:nth-child(6){width:45%;}
 
-        td:nth-child(1){width:17%;}
-        td:nth-child(2){width:14%;}
-        td:nth-child(3){width:22%;}
-        td:nth-child(4){width:16%;}
-        td:nth-child(5){width:17%;}
-        td:nth-child(6){width:12%;}
+        td:nth-child(1){display:none;}
+        td:nth-child(2){width:50%;}
+        td:nth-child(3){display:none;}
+        td:nth-child(4){display:none;}
+        td:nth-child(5){display:none;}
+        td:nth-child(6){width:45%;}
     }
+
 
     th{ 
         font-family: 'WorkSansMedium';
@@ -365,7 +355,7 @@
     .inactivestatus{ background:rgba(84, 95, 125, 0.06); color:#545F7D; width:80px; height:30px;  }
     .blacklistedstatus{ color: #E4033B; background:rgba(228, 3, 59, 0.1); width:100px; height:30px; }
 
-    .more{ width:3.3px; height:14px; margin-left:8px; &:hover{cursor:pointer;} }
+    .more{ width:3.3px; height:14px; &:hover{cursor:pointer;} }
 
     #userpagebtm{
         @include flex(row, space-between, center); width:100%; box-sizing:border-box; margin-top:26px;
@@ -377,10 +367,10 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
-        color: #545F7D;
+        color: #545F7D; @include flex(column, flex-start, flex-start);
     }
 
-    #upbselect{ display:inline; vertical-align:center; margin:0px 8px; width:70px; height:30px;
+    #upbselect{ display:inline; vertical-align:center; margin:3px 0px; width:70px; height:30px;
         background: rgba(33, 63, 125, 0.1); box-sizing:border-box; padding:0px 10px;
         border-radius: 4px; border:none; color:#213F7D; 
         &:hover{ cursor: pointer; }
@@ -390,11 +380,11 @@
     }
 
     #upbright{
-        width:262px; height:24px; @include flex(row, space-between, center)
+        width:200px; height:24px; @include flex(row, space-between, center)
     }
 
     .upbarrow{ 
-        width:24px; height:24px;
+        width:20px; height:20px;
         &:hover{ cursor:pointer;}
     }
 
@@ -402,7 +392,7 @@
         font-family: 'WorkSansRegular';
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 19px;
         color: #545F7D; opacity:0.6;
     }
@@ -411,7 +401,7 @@
         font-family: 'WorkSansRegular';
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 19px;
         color: #545F7D;
     }
@@ -419,7 +409,7 @@
     /*User Details*/
     #userdetailspage{
         @include flex(column, flex-start, flex-start); width:100vw; height:85vh; box-sizing:border-box;
-        overflow-y:auto; overflow-x:hidden; padding:70px 60px 50px 60px;
+        overflow-y:auto; overflow-x:hidden; padding:20px 10px 15px 10px;
     }
 
     #back{ 
@@ -427,39 +417,34 @@
         font-family: 'WorkSansRegular';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 14px;
         color: #545F7D;
         &:hover{ cursor:pointer;}
     }
-    #backimg{ margin-right:14.4px; width:26.7px; height:9.4px; }
+    #backimg{ margin-right:5px; width:24px; height:auto; }
 
     #udptop{
-        @include flex(row, space-between, center); width:100%; height:auto; margin-top:26px;
+        @include flex(row, space-between, center); width:100%; height:auto; margin-top:30px;
     }
 
     #udpleft{
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 20px;
         color: #213F7D;
     }
 
     #udpright{
-        @include flex(row, flex-end, center);
+        @include flex(column, space-around, center); width:160px; height:100px;
         button{
-
             font-family: 'WorkSansMedium';
-            font-style: normal;
+            font-style: normal; box-sizing:border-box;
             font-weight: 600;
-            font-size: 14px;
-            line-height: 16px;
-            text-align: center;
-            letter-spacing: 0.1em;
+            font-size: 14px; min-width:140px;  max-width:140px; padding:8px 0px;
+            text-align: center; height:40px;
             text-transform: uppercase; background:#FFFFFF;
-            width:170px; height:40px; border-radius:8px; margin-left:20px;
+            width:auto; height:auto; border-radius:8px; margin-left:5px;
             &:hover{cursor:pointer;}
         }
     }
@@ -468,31 +453,36 @@
     #activateuserbtn{ border:1px solid #39CDCC; color:#39CDCC; }
 
     #udpmiddle{
-        width:100%; height:210px; @include flex(column, center, flex-start); box-sizing:border-box;
-        padding:30px 30px 0px 30px; background: #FFFFFF;
+        width:100%; height:auto; @include flex(column, center, flex-start); box-sizing:border-box;
+        padding:30px 10px 0px 10px; background: #FFFFFF;
         border: 1px solid rgba(33, 63, 125, 0.06);
         box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-        border-radius:4px; margin-top:40px;
+        border-radius:4px; margin-top:20px;
     }
 
     #udpmtop{
-        @include flex(row, flex-start, center); margin-bottom:51px;
+        @include flex(row, flex-start, center); margin-bottom:51px; flex-wrap:wrap; padding:5px 10px;
+        width:100%; box-sizing:border-box;
     }
 
-    #udpmavatar{ width:100px; height:100px; }
+    #udpmavatar{ width:70px; height:70px; margin-left:5px; }
 
     .udpmdiv{
-        padding:0px 25px; @include flex(column, center, flex-start);
+        @include flex(column, center, center); padding:5px;
         div{
             margin-bottom:10px;
         }
     }
 
+    .udpmdiv:nth-child(2){ margin-left:10px; width:60%; @include flex(column, center, flex-start); }
+    .udpmdiv:nth-child(3){width:40%; margin-top:15px;}
+     .udpmdiv:nth-child(4){ width:52%; margin-top:15px; }
+
     #udpmname{
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
-        font-size: 22px;
+        font-size: 20px;
         line-height: 26px;
         color: #213F7D;
     }
@@ -501,7 +491,7 @@
         font-family: 'WorkSansRegular';
         font-style: normal;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 16px;
         color: #545F7D;
     }
@@ -510,13 +500,13 @@
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 16px;
         color: #545F7D;
     }
 
     #udpmstarcont{
-        @include flex(row, flex-start, center);
+        @include flex(row, center, center);
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
@@ -524,7 +514,7 @@
         line-height: 16px;
         color: #545F7D; width:100%;
         img{
-            width:14px; height:14px; margin-right:5.5px;
+            width:17px; height:17px; margin-right:5.5px;
         }
     }
 
@@ -532,8 +522,7 @@
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
-        font-size: 22px;
-        line-height: 26px;
+        font-size: 20px;
         color: #213F7D;
     }
 
@@ -541,8 +530,7 @@
         font-family: 'WorkSansRegular';
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
-        line-height: 14px;
+        font-size: 10px;
         color: #213F7D;
 
     }
@@ -552,25 +540,25 @@
     }
 
     .udpmlist{
-        @include flex(column, flex-start, center); 
-        width:16%; height:29px;
+        @include flex(column, center, center); 
+        width:15%; height:29px;
         font-family: 'SFCompactTextRegular';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-        text-align: center;
+        font-size: 9px;
+        line-height:11px;
+        text-align: center; padding:5px 0px;
         color: rgba(0, 0, 0, 0.8);
         &:hover{cursor:pointer;}
     }
 
     .udpmlistactive{
-        @include flex(column, flex-start, center);
+        @include flex(column, center, center); padding:5px 0px;
         font-family: 'WorkSansMedium'; width:16%; height:29px;
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 9px;
+        line-height:11px;
         text-align: center;
         color: #39CDCC;
         border:none; border-bottom:2px solid #39CDCC;
@@ -579,7 +567,7 @@
 
 
     #udpbtm{
-        @include flex(column, flex-start, flex-start); padding:30px 30px 0px 30px;
+        @include flex(column, flex-start, flex-start); padding:30px 10px 0px 10px;
         width:100%; height:auto; background: #FFFFFF; box-sizing:border-box;
         border: 1px solid rgba(33, 63, 125, 0.06);
         box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -595,7 +583,7 @@
         font-family: 'WorkSansMedium';
         font-style: normal; margin-bottom:30px;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 19px;
         color: #213F7D;
     }
@@ -605,14 +593,14 @@
     }
 
     .udpbcell{
-        min-width:18%; max-width:30%; @include flex(column, flex-start, flex-start); margin-bottom:30px; padding:10px 20px; box-sizing:border-box;
+        min-width:40%; max-width:65%; @include flex(column, flex-start, flex-start); margin-bottom:20px; padding:10px 5px; box-sizing:border-box;
     }
 
     .udpbtop{
         font-family: 'WorkSansRegular';
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 14px;
         text-transform: uppercase;
         color: #545F7D; margin-bottom:8px;
@@ -622,7 +610,7 @@
         font-family: 'WorkSansMedium';
         font-style: normal;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 19px;
         color: #545F7D;
     }
@@ -630,7 +618,7 @@
     /*Filter Form*/
     #filterform{ 
         width:270px; height:600px; @include flex(column, flex-start, flex-start); box-sizing:border-box; padding:10px 20px; position:fixed; 
-        background: #FFFFFF; top:85px;
+        background: #FFFFFF; top:85px; margin:auto;
         border: 1px solid rgba(84, 95, 125, 0.14);
         box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
         border-radius: 4px;
@@ -684,7 +672,7 @@
     /*More*/
     #moreoptdiv{
         box-sizing:border-box; padding:10px 20px; width:180px; position:absolute;
-        height:130px; background: #FFFFFF; right:70px; top:200px;
+        height:130px; background: #FFFFFF;
         border: 1px solid rgba(84, 95, 125, 0.04);
         box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
         border-radius: 4px; @include flex(column, flex-start, flex-start);
@@ -712,11 +700,12 @@
     /*Others*/
     #dashboardpage{ 
         background: #FBFBFB; @include flex(column, flex-start, flex-start);
-        overflow-y:hidden; overflow-x:hidden; width:100vw; height:100vh;
+        overflow-y:hidden; overflow-x:hidden; width:100vw; height:100vh; position:relative;
     
     }
     #mainbody{
-        width:100vw; @include flex(row, flex-start, flex-start); height:85vh;
-        overflow-y:hidden; overflow-x:hidden;
+        width:100vw; @include flex(row-reverse, flex-start, flex-start); height:100%;
+        overflow-y:hidden; overflow-x:hidden; position:relative;
     }
+
 }

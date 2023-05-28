@@ -53,7 +53,7 @@ const UserDetails = <T extends userdetailformat>({userDetails}: UserDetailsProps
                         <div id="udpmname">{userDetails.profile.firstName+' '+userDetails.profile.lastName}</div>
                         <div id="udpmid">{userDetails.accountNumber}</div>
                     </div>
-                    <div className="udpmdiv" style={{border:'none', borderLeft:'1px solid rgba(84, 95, 125, 0.2)', borderRight:'1px solid rgba(84, 95, 125, 0.2)',}}>
+                    <div className="udpmdiv" style={{border:'none', borderLeft: window.innerWidth<1024?'none':'1px solid rgba(84, 95, 125, 0.2)', borderRight:'1px solid rgba(84, 95, 125, 0.2)',}}>
                         <div id="usertier">User's Tier</div>
                         <div id="udpmstarcont">
                             <img alt="" src={starfull}/>

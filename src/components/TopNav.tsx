@@ -7,7 +7,21 @@ import image from './../res/image.svg';
 import search from './../res/search.svg';
 import './../styles/App.css';
 
-function TopNav() {
+type TNProps = {
+    active: string,
+    setActive: React.Dispatch<React.SetStateAction<string>>
+}
+
+const TopNav = ({active, setActive}: TNProps) => {
+
+    const toggleBar = () => {
+        if(active==='0px'){
+            setActive('-100vw');
+        }else{
+            setActive('0px');
+        }     
+    }
+
     return(
         <div id="topnav">
             <div id="complogodiv">
@@ -23,7 +37,7 @@ function TopNav() {
             <div id="topright">
                 <div id="docs">Docs</div>
                 <img id="bell" alt="" src={bell}/>
-                <div id="avatardiv">
+                <div id="avatardiv" onClick={()=>{toggleBar();}}>
                     <img id="avatar" alt="" src={image}/>
                     <div id="avatarname"></div>
                     <img id="avatardrop" alt="" src={drop}/>

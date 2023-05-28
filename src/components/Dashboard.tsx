@@ -24,6 +24,7 @@ function Dashboard() {
     }
     const [id, setId] = useState<string>('')
     const [userDetails, setUserDetails] = useState(format);
+    const [activeLSB, setActiveLSB] = useState('0px');
 
     useEffect(()=>{
         let id = new URL(window.location.href).searchParams.get('id');
@@ -43,9 +44,9 @@ function Dashboard() {
 
     return(
         <div  id="dashboardpage">
-            <TopNav/>
+            <TopNav active={activeLSB} setActive={setActiveLSB}/>
             <div id="mainbody">
-                <LeftSideBar/>
+                <LeftSideBar active={activeLSB}/>
                 {
                     id===''?<Users/>:<UserDetails userDetails={userDetails}/>
                 }

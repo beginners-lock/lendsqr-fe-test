@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LogIn from './components/LogIn';
 import Dashboard from './components/Dashboard';
 import './styles/App.css';
+import './styles/tablet.css';
+import './styles/mobile.css';
 
 function App() {
   	return (
