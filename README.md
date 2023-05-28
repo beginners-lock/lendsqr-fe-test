@@ -1,5 +1,7 @@
 # Lendsqr Frontend Engineer Test
 
+## Quick note: When in mobile or tablet mode, you can use the avatar circle at the top navbar to dock and undocm the left side bar
+
 ## Table Of Content
 
 ### - Project Description
