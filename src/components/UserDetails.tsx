@@ -28,7 +28,7 @@ type userdetailformat = {
 const UserDetails = <T extends userdetailformat>({userDetails}: UserDetailsProps<T>) => {
 
     const goback = () => {
-        window.location.href = 'http://localhost:3000/dashboard';
+        window.location.href = window.location.href.slice(0, window.location.href.indexOf('/'))+'dashboard';
     }
 
     const setListActive = (target:  HTMLElement) => {

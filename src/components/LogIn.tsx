@@ -35,7 +35,7 @@ function LogIn() {
                 <i id="loginshowhide" onClick={(e)=>{showhide(e.target as HTMLElement);}}>SHOW</i>
                 </p>
                 <div id="loginforgotpass">Forgot password</div>
-                <button id="loginsubmit" onClick={()=>{window.location.href = 'http://localhost:3000/dashboard';}}>LOG IN</button>
+                <button id="loginsubmit" onClick={()=>{window.location.href = window.location.href.slice(0, window.location.href.indexOf('/'))+'dashboard';}}>LOG IN</button>
             </div>
         </div>
     );

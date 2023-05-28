@@ -119,7 +119,7 @@ function Users() {
     }
 
     const finduserdetails = (id: string) => {
-        let url = new URL('http://localhost:3000/dashboard');
+        let url = new URL(window.location.href);
         url.searchParams.set('id', id);
         window.location.href = url.toString();
     }

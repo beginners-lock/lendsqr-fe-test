@@ -763,6 +763,9 @@
   tr td:nth-child(6) {
     width: 12%;
   }
+  tr:hover {
+    cursor: pointer;
+  }
   th {
     font-family: 'WorkSansMedium';
     font-style: normal;
