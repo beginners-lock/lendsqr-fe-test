@@ -2,10 +2,10 @@
 
 ## Table Of Content
 
-Project Description
-Project Installation and Running
-Project Navigation and Features
-Project Challenges and Analysis
+### - Project Description
+### - Project Installation and Running
+### - Project Navigation and Features
+### - Project Challenges and Analysis
 
 ## Project Description
 
