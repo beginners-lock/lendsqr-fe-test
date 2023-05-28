@@ -605,7 +605,7 @@
     }
 
     .udpbcell{
-        min-width:18%; max-width:30%; @include flex(column, flex-start, flex-start); margin-bottom:30px; padding:10px 20px; box-sizing:border-box;
+        min-width:20%; max-width:35%; @include flex(column, flex-start, flex-start); margin-bottom:30px; padding:10px 20px; box-sizing:border-box;
     }
 
     .udpbtop{
