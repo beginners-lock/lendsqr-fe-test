@@ -4,7 +4,11 @@ import logoname from './../res/lendsqr.svg';
 import loginimg from './../res/pablo-sign-in 1.svg';
 import './../styles/App.css';
 
-function LogIn() {
+type LoginProps = {
+    setUrl: React.Dispatch<React.SetStateAction<string>>
+}
+
+const LogIn = ({setUrl}: LoginProps) => {
     const showhide = (target: HTMLElement) => {
         console.log('hey');
         let input = target.previousElementSibling as HTMLInputElement;
@@ -35,7 +39,7 @@ function LogIn() {
                 <i id="loginshowhide" onClick={(e)=>{showhide(e.target as HTMLElement);}}>SHOW</i>
                 </p>
                 <div id="loginforgotpass">Forgot password</div>
-                <button id="loginsubmit" onClick={()=>{window.location.href = window.location.href.slice(0, window.location.href.indexOf('/'))+'dashboard';}}>LOG IN</button>
+                <button id="loginsubmit" onClick={()=>{setUrl('dashboard');}}>LOG IN</button>
             </div>
         </div>
     );

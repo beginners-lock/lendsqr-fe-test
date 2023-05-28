@@ -5,30 +5,44 @@ import starempty from './../res/starempty.svg';
 import starfull from './../res/starfull.svg';
 import './../styles/App.css';
 
-type UserDetailsProps<T> = {
-    userDetails: T
+type UserDetailsProps = {
+    id: string
+    setId: React.Dispatch<React.SetStateAction<string>>
 }
 
-type userdetailformat = {
-        accountBalance: string,
-        accountNumber: string,
-        createdAt: string,
-        education: {level: string, employmentStatus: string, sector: string, duration: string, officeEmail: string, monthlyIncome: string[], loanRepayment: string},
-        email: string,
-        guarantor: {firstName: string, lastName: string, phoneNumber: string, gender: string, address: string, relationship: string},
-        id: string,
-        lastActiveDate: string,
-        orgName: string,
-        phoneNumber: string,
-        profile: {firstName: string, lastName: string, phoneNumber: string, avatar: string, gender: string, bvn: string, address: string, maritalStatus: string, children: string},
-        socials: {facebook: string, instagram: string, twitter: string},
-        userName: string
-}
-
-const UserDetails = <T extends userdetailformat>({userDetails}: UserDetailsProps<T>) => {
+const UserDetails = ({id, setId}: UserDetailsProps) => {
+    let format = {
+        accountBalance: "",
+        accountNumber: "",
+        createdAt: "",
+        education: {level: '', employmentStatus: '', sector: '', duration: '', officeEmail: '', monthlyIncome: [], loanRepayment: ''},
+        email: "",
+        guarantor: {firstName: '', lastName: '', phoneNumber: '', gender: '', address: "", relationship: ""},
+        id: "",
+        lastActiveDate: "",
+        orgName: "",
+        phoneNumber: "",
+        profile: {firstName: '', lastName: '', phoneNumber: '', avatar: '', gender: '', bvn: '', address:'', maritalStatus: '', children: ''},
+        socials: {facebook: '', instagram: '', twitter: ''},
+        userName: ""
+    }
+    
+    const [userDetails, setUserDetails] = useState(format);
+    useEffect(()=>{
+        if(id!==''){
+            let url = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/'+id;
+            fetch(url).then((response) => {
+                return response.json();
+            }).then((response) => {
+                console.log(response);
+                localStorage.setItem('userDetails', response);
+                setUserDetails(response);
+            }); 
+        }
+    }, [])
 
     const goback = () => {
-        window.location.href = window.location.href.slice(0, window.location.href.indexOf('/'))+'dashboard';
+        setId('');
     }
 
     const setListActive = (target:  HTMLElement) => {

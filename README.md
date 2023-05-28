@@ -11,6 +11,10 @@
 
 This project is my submission for test given to me by Lendsqr prior to my application for the post of Frontend Engineer. I am to replicate a figma design which was given as well as integrate with an API for fetching list of users and user detail. I am also to do this using Typescript, SCSS and React whilst also making the site media responsive.
 
+The project was initially done using actual urls but due to the nature of free host serving that was not going to work out well. So therefore the pages are being loaded using component state to store the url and also the user id (in the case of the UserDetils page).
+
+I would take the oppurtunity to apologize for the lack of comments in my code, it was done in haste due to an unforeseen tight schedule last week which made me use only three days (starting on Friday) out of the seven given to build this. 
+
 ## Project Installation and Running
 
 The React app project was built usig the create-react-app command
@@ -68,12 +72,11 @@ All resource files were stored in the `src` folder of the project. The TSX compo
 
 ### Login Page
 
-The Login Page located at `http://localhost:3000` or `http://localhost:3000/login` is without any form of authentication therefore clicking the login button would take you to the dashboard page. The show/hide password toggle is full functioning.
+The Login Page located at `http://localhost:3000` is without any form of authentication therefore clicking the login button would take you to the dashboard page. The show/hide password toggle is full functioning.
 
 ### Dashboard Users
 
-This page provides a list of the subscribed users and is located at `http://localhost:3000/dashboard`.
-The user list is gotten by fetching the data from [https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users](https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users)
+This page provides a list of the subscribed users. The user list is gotten by fetching the data from [https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users](https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users)
 - Clicking any of the table header to display the filte form which does not have any functionalities yet. 
 - Clicking the `Reset` button, `Filter` button or any free part of the site would close this filter form. The filter form is not full functional, it currently only filters by user status; meaning anyther information in other inout fields do not affect the filtered result 
 - Due to the unavailability of a status attribute/key in the users object sent throught the API, all - status values shown are randomly allocated to users 'onMount' of the `Users` component.
@@ -82,7 +85,7 @@ The user list is gotten by fetching the data from [https://6270020422c706a0ae70b
 
 ### Dashboard User Details
 
-This page shows the details of the user id which is sent as a paramete through the url site url it is located at `http://localhost:3000/dashboard?id={id}`. The user details are gotte by fetching the data from ['https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id']('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id').
+This page shows the details of the user id which is sent parameter to the component using state. The user details are gotte by fetching the data from ['https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id']('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id').
 
 The blacklist button and activate button are not functional since the effect would not take effect (the code gives each user a random status onMount therefore even though we change status of the user going back would simply re-distribute randome statuses again). This function would be easily implemented is the users object passed through the API contains a status attribute.
 

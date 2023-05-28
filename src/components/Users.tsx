@@ -12,8 +12,12 @@ import activate from './../res/activate.svg';
 import view from './../res/view.svg';
 import './../styles/App.css';
 
+
+type UsersProps = {
+    setId: React.Dispatch<React.SetStateAction<string>>
+}
 //May 15, 2020 10:00 AM
-function Users() {
+const Users = ({setId}: UsersProps) => {
     const [curPage, setCurPage] = useState(1);
     const [activeUsers, setActiveUsers] = useState(0);
     const [vals, setVals] = useState([1, 2, 3])
@@ -119,9 +123,7 @@ function Users() {
     }
 
     const finduserdetails = (id: string) => {
-        let url = new URL(window.location.href);
-        url.searchParams.set('id', id);
-        window.location.href = url.toString();
+        setId(id);
     }
 
     const filterFunction = () => {

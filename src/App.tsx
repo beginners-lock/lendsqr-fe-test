@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+//import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LogIn from './components/LogIn';
 import Dashboard from './components/Dashboard';
 import './styles/App.css';
@@ -7,16 +7,20 @@ import './styles/tablet.css';
 import './styles/mobile.css';
 
 function App() {
+	const [url, setUrl] = useState('login');
+	const [id, setId] = useState('');
+
+	useEffect(()=>{
+		setUrl('login')
+	}, []);
+
   	return (
     	<div id="App">
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' Component={LogIn}/>
-					<Route path='/login' Component={LogIn}/>
-					<Route path='/dashboard' Component={Dashboard}/>
-					<Route path='/dashboard/users' Component={Dashboard}/>
-				</Routes>
-			</BrowserRouter>
+			{
+				url === 'login'?
+					<LogIn setUrl={setUrl}/>
+				: 	<Dashboard setId={setId} id={id}/>
+			}
     	</div>
   	);
 }
